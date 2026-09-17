@@ -5,7 +5,7 @@ public class Anggota {
     private String nama;
     private int limitPinjaman;
     private int jumlahPinjaman;
-    
+
     public Anggota(String nomorKTP, String nama, int limitPinjaman) {
         this.nomorKtp = nomorKTP;
         this.nama = nama;
@@ -38,10 +38,14 @@ public class Anggota {
     }
 
     public void angsur(int nominal) {
-        if (nominal > jumlahPinjaman) {
-            jumlahPinjaman = 0;
+        if (nominal < (0.1 * jumlahPinjaman)) {
+        System.out.println("Maaf, angsuran harus 10% dari jumlah pinjaman");
         } else {
-            jumlahPinjaman -= nominal;
+            if (nominal > jumlahPinjaman) {
+            jumlahPinjaman = 0;
+            } else {
+                jumlahPinjaman -= nominal;
+            }
         }
     }
 }
